@@ -1,0 +1,104 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+// NextAuth required models
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  role          String    @default("customer") // customer | admin
+  password      String?
+  accounts      Account[]
+  sessions      Session[]
+  customer      Customer?
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// Restaurant business models
+model Customer {
+  id                 String              @id @default(cuid())
+  userId             String              @unique
+  phone              String?
+  birthday           DateTime?
+  tier               String              @default("bronze")
+  totalPoints        Int                 @default(0)
+  stripeCustomerId   String?             @unique
+  subscriptionId     String?
+  subscriptionStatus String?             // active | canceled | past_due
+  subscriptionPlan   String?             // silver | gold
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+  user               User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  pointsTransactions PointsTransaction[]
+  emailLogs          EmailLog[]
+}
+
+model PointsTransaction {
+  id          String   @id @default(cuid())
+  customerId  String
+  points      Int
+  type        String   // earn | redeem | subscription | manual
+  description String?
+  createdAt   DateTime @default(now())
+  customer    Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+}
+
+model EmailCampaign {
+  id         String     @id @default(cuid())
+  subject    String
+  body       String
+  targetTier String     @default("all")
+  status     String     @default("draft")
+  sentAt     DateTime?
+  createdAt  DateTime   @default(now())
+  emailLogs  EmailLog[]
+}
+
+model EmailLog {
+  id         String        @id @default(cuid())
+  campaignId String
+  customerId String
+  sentAt     DateTime      @default(now())
+  campaign   EmailCampaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  customer   Customer      @relation(fields: [customerId], references: [id], onDelete: Cascade)
+}

@@ -5,13 +5,13 @@ import "./globals.css";
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
 
 export const metadata: Metadata = {
-  title: "Hawaii Restaurant Members",
+  title: "Alohabake&cafe Kaka'ako Members",
   description: "会員・ポイント・サブスク管理システム",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Hawaii Members",
+    title: "Alohabake&cafe",
   },
 };
 

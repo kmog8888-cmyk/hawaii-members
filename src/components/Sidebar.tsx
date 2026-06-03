@@ -15,7 +15,7 @@ export default function Sidebar() {
   return (
     <aside className="w-56 min-h-screen bg-slate-900 text-white flex flex-col">
       <div className="px-6 py-5 border-b border-slate-700">
-        <p className="text-xs text-slate-400 uppercase tracking-widest">🌺 Hawaii Restaurant</p>
+        <p className="text-xs text-slate-400 uppercase tracking-widest">🌺 Alohabake&cafe Kaka'ako</p>
         <h1 className="text-lg font-bold mt-0.5">会員システム</h1>
       </div>
       <nav className="flex-1 py-4">

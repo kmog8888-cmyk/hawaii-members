@@ -37,7 +37,7 @@ export default function LoginPage() {
       <div className="bg-white rounded-3xl shadow-xl p-10 w-full max-w-md">
         <div className="text-center mb-8">
           <div className="text-5xl mb-3">🌺</div>
-          <h1 className="text-2xl font-bold text-slate-800">Hawaii Restaurant</h1>
+          <h1 className="text-2xl font-bold text-slate-800">Alohabake&cafe Kaka'ako</h1>
           <p className="text-slate-500 text-sm mt-1">会員ログイン</p>
         </div>
 

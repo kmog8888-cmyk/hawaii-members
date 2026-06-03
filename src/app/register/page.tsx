@@ -56,7 +56,7 @@ export default function RegisterPage() {
         <div className="text-center mb-8">
           <div className="text-4xl mb-3">🌺</div>
           <h1 className="text-2xl font-bold text-slate-800">新規会員登録</h1>
-          <p className="text-slate-500 text-sm mt-1">Hawaii Restaurant Members</p>
+          <p className="text-slate-500 text-sm mt-1">Alohabake&cafe Kaka'ako Members</p>
         </div>
 
         <form onSubmit={submit} className="space-y-4">

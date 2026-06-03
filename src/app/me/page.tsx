@@ -56,7 +56,7 @@ export default function MePage() {
       {/* ヘッダー */}
       <div className="bg-gradient-to-r from-orange-500 to-pink-500 px-6 pt-14 pb-8 text-white">
         <div className="flex items-center justify-between mb-4">
-          <p className="text-xs font-medium tracking-widest opacity-80 uppercase">Hawaii Restaurant</p>
+          <p className="text-xs font-medium tracking-widest opacity-80 uppercase">Alohabake&cafe Kaka'ako</p>
           <button onClick={() => signOut({ callbackUrl: "/" })} className="opacity-70 hover:opacity-100">
             <LogOut size={18} />
           </button>

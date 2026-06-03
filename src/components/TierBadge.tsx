@@ -1,7 +1,7 @@
 const TIER_STYLES: Record<string, string> = {
-  bronze: "bg-amber-50 text-amber-700 border border-amber-200",
-  silver: "bg-slate-50 text-slate-600 border border-slate-200",
-  gold:   "bg-yellow-50 text-[#C4962A] border border-yellow-200",
+  bronze: "bg-[#A0623D]/20 text-[#A0623D]",
+  silver: "bg-white/10 text-white/50",
+  gold:   "bg-[#BFE96A] text-[#0f0f0f]",
 };
 
 export default function TierBadge({ tier }: { tier: string }) {

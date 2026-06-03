@@ -13,11 +13,11 @@ const navItems = [
 export default function Sidebar() {
   const pathname = usePathname();
   return (
-    <aside className="w-56 min-h-screen bg-[#1C1C1E] text-white flex flex-col">
-      <div className="px-6 py-6 border-b border-white/10">
-        <p className="text-[10px] tracking-[0.3em] text-[#C4962A] uppercase">Alohabake & cafe</p>
-        <p className="text-[10px] tracking-[0.2em] text-white/30 uppercase mt-0.5">Kaka'ako</p>
-        <p className="text-xs text-white/50 mt-2">Admin</p>
+    <aside className="w-56 min-h-screen bg-[#0f0f0f] text-white flex flex-col border-r border-white/5">
+      <div className="px-6 py-6 border-b border-white/5">
+        <p className="text-[10px] tracking-[0.3em] text-[#BFE96A] uppercase font-medium">Alohabake &amp; cafe</p>
+        <p className="text-[10px] tracking-[0.15em] text-white/20 uppercase mt-0.5">Kaka'ako</p>
+        <span className="inline-block mt-2 text-[10px] bg-white/10 text-white/40 px-2 py-0.5 rounded-full tracking-wide">Admin</span>
       </div>
       <nav className="flex-1 py-4">
         {navItems.map(({ href, label, icon: Icon }) => {
@@ -28,24 +28,21 @@ export default function Sidebar() {
               href={href}
               className={`flex items-center gap-3 px-6 py-3 text-sm transition-colors ${
                 active
-                  ? "text-white bg-white/10 border-r-2 border-[#C4962A]"
-                  : "text-white/40 hover:text-white hover:bg-white/5"
+                  ? "text-[#BFE96A] bg-[#BFE96A]/5 border-r-2 border-[#BFE96A]"
+                  : "text-white/30 hover:text-white/70 hover:bg-white/5"
               }`}
             >
-              <Icon size={16} />
+              <Icon size={15} />
               {label}
             </Link>
           );
         })}
       </nav>
-      <div className="border-t border-white/10">
-        <Link href="/me" className="flex items-center gap-3 px-6 py-4 text-sm text-white/40 hover:text-white hover:bg-white/5 transition-colors">
-          <User size={16} />
+      <div className="border-t border-white/5">
+        <Link href="/me" className="flex items-center gap-3 px-6 py-4 text-sm text-white/20 hover:text-white/50 hover:bg-white/5 transition-colors">
+          <User size={15} />
           Member View
         </Link>
-      </div>
-      <div className="px-6 py-4 border-t border-white/10">
-        <p className="text-[10px] text-white/20">Silver $9.99 · Gold $19.99</p>
       </div>
     </aside>
   );

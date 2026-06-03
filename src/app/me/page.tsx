@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
-import { Star, QrCode, CreditCard, LogOut, ChevronRight } from "lucide-react";
+import { Star, QrCode, CreditCard, LogOut, Gamepad2 } from "lucide-react";
 import Link from "next/link";
 import TierBadge from "@/components/TierBadge";
 import { TIER_DISCOUNT, SUBSCRIPTION_PLANS } from "@/lib/tier";
@@ -107,16 +107,18 @@ export default function MePage() {
         </div>
 
         {/* アクションボタン */}
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-3 gap-3">
           <Link href="/me/checkin" className="bg-white rounded-2xl shadow-sm p-4 flex flex-col items-center gap-2 hover:shadow-md transition-shadow">
-            <div className="bg-orange-50 rounded-xl p-3"><QrCode size={24} className="text-orange-500" /></div>
-            <span className="text-sm font-medium text-slate-700">チェックイン</span>
-            <span className="text-xs text-slate-400">QRコード表示</span>
+            <div className="bg-orange-50 rounded-xl p-3"><QrCode size={22} className="text-orange-500" /></div>
+            <span className="text-xs font-medium text-slate-700">チェックイン</span>
+          </Link>
+          <Link href="/me/game" className="bg-gradient-to-br from-green-400 to-teal-500 rounded-2xl shadow-sm p-4 flex flex-col items-center gap-2 hover:opacity-90 transition-opacity">
+            <div className="bg-white/20 rounded-xl p-3"><Gamepad2 size={22} className="text-white" /></div>
+            <span className="text-xs font-medium text-white">ゲーム</span>
           </Link>
           <Link href="/subscribe" className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl shadow-sm p-4 flex flex-col items-center gap-2 hover:opacity-90 transition-opacity">
-            <div className="bg-white/20 rounded-xl p-3"><CreditCard size={24} className="text-white" /></div>
-            <span className="text-sm font-medium text-white">サブスク</span>
-            <span className="text-xs text-white/70">{isActive ? "プラン管理" : "特典を見る"}</span>
+            <div className="bg-white/20 rounded-xl p-3"><CreditCard size={22} className="text-white" /></div>
+            <span className="text-xs font-medium text-white">サブスク</span>
           </Link>
         </div>
 

@@ -44,7 +44,7 @@ export default function RegisterPage() {
     });
 
     if (result?.ok) {
-      router.push("/dashboard");
+      router.push("/me");
     } else {
       router.push("/");
     }
@@ -118,7 +118,7 @@ export default function RegisterPage() {
         </div>
 
         <button
-          onClick={() => signIn("instagram", { callbackUrl: "/dashboard" })}
+          onClick={() => signIn("instagram", { callbackUrl: "/me" })}
           className="w-full flex items-center justify-center gap-3 border border-slate-200 py-3 rounded-2xl text-sm text-slate-700 hover:bg-slate-50 transition-colors"
         >
           <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-pink-500">

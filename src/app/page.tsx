@@ -26,7 +26,7 @@ export default function LoginPage() {
 
     setLoading(false);
     if (result?.ok) {
-      router.push("/dashboard");
+      router.push("/me");
     } else {
       setError("メールアドレスまたはパスワードが正しくありません");
     }
@@ -87,7 +87,7 @@ export default function LoginPage() {
 
         {/* Instagram ログイン */}
         <button
-          onClick={() => signIn("instagram", { callbackUrl: "/dashboard" })}
+          onClick={() => signIn("instagram", { callbackUrl: "/me" })}
           className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white font-semibold py-3.5 rounded-2xl hover:opacity-90 transition-opacity shadow-md"
         >
           <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">

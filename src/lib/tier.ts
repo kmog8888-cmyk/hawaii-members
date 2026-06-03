@@ -20,6 +20,12 @@ export const TIER_COLORS: Record<Tier, string> = {
   gold: "bg-yellow-100 text-yellow-800",
 };
 
+export const TIER_DISCOUNT: Record<Tier, number> = {
+  bronze: 0,
+  silver: 5,
+  gold: 10,
+};
+
 export const SUBSCRIPTION_PLANS = {
   silver: { name: "Silver Plan", price: 9.99, points: 100, discount: 5 },
   gold:   { name: "Gold Plan",   price: 19.99, points: 300, discount: 10 },

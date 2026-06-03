@@ -3,7 +3,12 @@ import { auth } from "@/lib/auth";
 import Sidebar from "@/components/Sidebar";
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
-  const session = await auth();
+  let session;
+  try {
+    session = await auth();
+  } catch {
+    redirect("/");
+  }
   if (!session?.user) redirect("/");
 
   return (

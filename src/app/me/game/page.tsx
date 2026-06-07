@@ -5,7 +5,7 @@ import { ChevronLeft } from "lucide-react";
 
 export default function GamePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white max-w-sm mx-auto flex flex-col">
+    <div className="min-h-screen bg-[#FAFAFA] max-w-sm mx-auto flex flex-col">
       <div className="flex items-center justify-between px-4 pt-12 pb-3">
         <Link href="/me" className="flex items-center gap-1 text-sm text-slate-500 hover:text-slate-700">
           <ChevronLeft size={16} /> マイページ

@@ -2,12 +2,11 @@
 
 :root {
   --lime: #BFE96A;
-  --lime-dark: #0D8A18;
-  --black: #0f0f0f;
-  --black-2: #1a1a1a;
-  --black-3: #353638;
-  --brown: #A0623D;
-  --foreground: #ffffff;
+  --lime-hover: #aed45a;
+  --black: #1C1C1E;
+  --gray: #6B6B6B;
+  --border: #E8E8E8;
+  --bg: #FAFAFA;
 }
 
 @theme inline {
@@ -15,8 +14,8 @@
 }
 
 body {
-  background: var(--black);
-  color: var(--foreground);
+  background: #FAFAFA;
+  color: #1C1C1E;
   font-family: var(--font-geist-sans, "Helvetica Neue", Arial, sans-serif);
   -webkit-font-smoothing: antialiased;
 }

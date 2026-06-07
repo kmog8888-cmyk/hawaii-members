@@ -35,7 +35,7 @@ export default function CheckinPage() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white max-w-sm mx-auto px-4 py-8">
+    <div className="min-h-screen bg-[#FAFAFA] max-w-sm mx-auto px-4 py-8">
       <Link href="/me" className="flex items-center gap-1 text-sm text-slate-500 hover:text-slate-700 mb-6">
         <ChevronLeft size={16} /> マイページに戻る
       </Link>

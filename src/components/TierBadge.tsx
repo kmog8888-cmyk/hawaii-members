@@ -1,13 +1,13 @@
 const TIER_STYLES: Record<string, string> = {
-  bronze: "bg-[#A0623D]/20 text-[#A0623D]",
-  silver: "bg-white/10 text-white/50",
-  gold:   "bg-[#BFE96A] text-[#0f0f0f]",
+  bronze: "bg-amber-50 text-amber-700 border border-amber-200",
+  silver: "bg-slate-100 text-slate-500 border border-slate-200",
+  gold:   "bg-[#BFE96A] text-[#1C1C1E] border border-[#BFE96A]",
 };
 
 export default function TierBadge({ tier }: { tier: string }) {
   const label = tier.charAt(0).toUpperCase() + tier.slice(1);
   return (
-    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${TIER_STYLES[tier] ?? TIER_STYLES.bronze}`}>
+    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${TIER_STYLES[tier] ?? TIER_STYLES.bronze}`}>
       {label}
     </span>
   );

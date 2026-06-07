@@ -19,6 +19,18 @@ export async function POST(req: NextRequest) {
   const getCustomer = async (stripeCustomerId: string) =>
     prisma.customer.findUnique({ where: { stripeCustomerId } });
 
+  // 注文の支払い完了
+  if (event.type === "checkout.session.completed") {
+    const session = event.data.object as Stripe.Checkout.Session;
+    if (session.metadata?.orderId) {
+      await prisma.order.update({
+        where: { id: session.metadata.orderId },
+        data: { status: "paid" },
+      });
+      return Response.json({ received: true });
+    }
+  }
+
   switch (event.type) {
     case "customer.subscription.created":
     case "customer.subscription.updated": {

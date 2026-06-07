@@ -71,6 +71,7 @@ model Customer {
   user               User                @relation(fields: [userId], references: [id], onDelete: Cascade)
   pointsTransactions PointsTransaction[]
   emailLogs          EmailLog[]
+  orders             Order[]
 }
 
 model MenuItem {
@@ -95,6 +96,32 @@ model PointsTransaction {
   description String?
   createdAt   DateTime @default(now())
   customer    Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+}
+
+model Order {
+  id              String      @id @default(cuid())
+  customerId      String?
+  customerName    String?
+  customerEmail   String?
+  status          String      @default("pending") // pending | paid | preparing | ready | completed | cancelled
+  total           Float
+  stripeSessionId String?     @unique
+  note            String?
+  orderNumber     Int?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  items           OrderItem[]
+  customer        Customer?   @relation(fields: [customerId], references: [id])
+}
+
+model OrderItem {
+  id         String   @id @default(cuid())
+  orderId    String
+  menuItemId String
+  name       String
+  price      Float
+  quantity   Int      @default(1)
+  order      Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
 }
 
 model EmailCampaign {

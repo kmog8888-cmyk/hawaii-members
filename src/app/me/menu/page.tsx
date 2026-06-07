@@ -108,7 +108,7 @@ export default function MenuPage() {
 
   if (loading) return (
     <div className="min-h-screen bg-white flex items-center justify-center">
-      <div className="w-8 h-8 border-2 border-[#BFE96A] border-t-transparent rounded-full animate-spin" />
+      <div className="w-8 h-8 border-2 border-[#C4A07A] border-t-transparent rounded-full animate-spin" />
     </div>
   );
 
@@ -121,13 +121,13 @@ export default function MenuPage() {
         </Link>
         <div className="flex items-start justify-between">
           <div>
-            <p className="text-[10px] tracking-[0.3em] text-[#BFE96A] uppercase mb-1">Alohabake &amp; cafe</p>
+            <p className="text-[10px] tracking-[0.3em] text-[#C4A07A] uppercase mb-1">Alohabake &amp; cafe</p>
             <h1 className="text-3xl font-light text-[#1C1C1E] tracking-tight">Menu</h1>
           </div>
           {cartCount > 0 && (
-            <button onClick={() => setShowCart(true)} className="relative mt-1 bg-[#BFE96A] text-[#0f0f0f] p-2.5 rounded-xl hover:bg-[#d4f086] transition-colors">
+            <button onClick={() => setShowCart(true)} className="relative mt-1 bg-[#C4A07A] text-[#0f0f0f] p-2.5 rounded-xl hover:bg-[#D4B08A] transition-colors">
               <ShoppingBag size={20} />
-              <span className="absolute -top-1.5 -right-1.5 bg-white text-[#BFE96A] text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border border-[#BFE96A]">
+              <span className="absolute -top-1.5 -right-1.5 bg-white text-[#C4A07A] text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border border-[#C4A07A]">
                 {cartCount}
               </span>
             </button>
@@ -142,7 +142,7 @@ export default function MenuPage() {
           return (
             <button key={cat} onClick={() => setActiveCategory(cat)}
               className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-                activeCategory === cat ? "bg-[#BFE96A] text-[#0f0f0f]" : "bg-[#F5F5F5] text-[#ABABAB] hover:bg-[#EEEEEE]"
+                activeCategory === cat ? "bg-[#C4A07A] text-[#0f0f0f]" : "bg-[#F5F5F5] text-[#ABABAB] hover:bg-[#EEEEEE]"
               }`}>
               {cat === "all" ? "All" : info ? `${info.emoji} ${info.label}` : cat}
             </button>
@@ -174,7 +174,7 @@ export default function MenuPage() {
                       <p className="font-medium text-[#1C1C1E] text-sm leading-tight">{item.name}</p>
                       {item.nameEn && <p className="text-[10px] text-[#ABABAB] mt-0.5">{item.nameEn}</p>}
                     </div>
-                    <p className="text-[#BFE96A] font-semibold text-sm whitespace-nowrap">${item.price.toFixed(2)}</p>
+                    <p className="text-[#C4A07A] font-semibold text-sm whitespace-nowrap">${item.price.toFixed(2)}</p>
                   </div>
                   {item.description && (
                     <p className="text-xs text-[#ABABAB] mt-1 leading-relaxed line-clamp-2">{item.description}</p>
@@ -183,7 +183,7 @@ export default function MenuPage() {
                 <div className="flex items-center justify-end mt-3">
                   {qty === 0 ? (
                     <button onClick={() => addToCart(item)}
-                      className="flex items-center gap-1.5 bg-[#BFE96A] text-[#0f0f0f] px-3 py-1.5 rounded-full text-xs font-bold hover:bg-[#d4f086] transition-colors">
+                      className="flex items-center gap-1.5 bg-[#C4A07A] text-[#0f0f0f] px-3 py-1.5 rounded-full text-xs font-bold hover:bg-[#D4B08A] transition-colors">
                       <Plus size={12} /> 追加
                     </button>
                   ) : (
@@ -192,7 +192,7 @@ export default function MenuPage() {
                         <Minus size={12} />
                       </button>
                       <span className="text-[#1C1C1E] text-sm font-semibold w-4 text-center">{qty}</span>
-                      <button onClick={() => addToCart(item)} className="w-6 h-6 flex items-center justify-center text-[#BFE96A] hover:text-[#d4f086]">
+                      <button onClick={() => addToCart(item)} className="w-6 h-6 flex items-center justify-center text-[#C4A07A] hover:text-[#D4B08A]">
                         <Plus size={12} />
                       </button>
                     </div>
@@ -208,7 +208,7 @@ export default function MenuPage() {
       {cartCount > 0 && (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[calc(100%-2.5rem)] max-w-xs z-40">
           <button onClick={() => setShowCart(true)}
-            className="w-full bg-[#BFE96A] text-[#0f0f0f] font-bold py-4 rounded-2xl flex items-center justify-between px-5 shadow-xl hover:bg-[#d4f086] transition-colors">
+            className="w-full bg-[#C4A07A] text-[#0f0f0f] font-bold py-4 rounded-2xl flex items-center justify-between px-5 shadow-xl hover:bg-[#D4B08A] transition-colors">
             <span className="bg-[#E0E0E0] text-[#0f0f0f] text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center">{cartCount}</span>
             <span>注文を確認する</span>
             <span className="font-bold">${cartTotal.toFixed(2)}</span>
@@ -233,13 +233,13 @@ export default function MenuPage() {
                         <Minus size={11} />
                       </button>
                       <span className="text-[#1C1C1E] text-sm w-4 text-center">{item.quantity}</span>
-                      <button onClick={() => addToCart(item)} className="w-6 h-6 flex items-center justify-center text-[#BFE96A]">
+                      <button onClick={() => addToCart(item)} className="w-6 h-6 flex items-center justify-center text-[#C4A07A]">
                         <Plus size={11} />
                       </button>
                     </div>
                     <p className="text-[#1C1C1E] text-sm">{item.name}</p>
                   </div>
-                  <p className="text-[#BFE96A] text-sm font-medium">${(item.price * item.quantity).toFixed(2)}</p>
+                  <p className="text-[#C4A07A] text-sm font-medium">${(item.price * item.quantity).toFixed(2)}</p>
                 </div>
               ))}
             </div>
@@ -255,7 +255,7 @@ export default function MenuPage() {
                       onClick={() => setPickupTime(slot.value)}
                       className={`py-2 px-3 rounded-xl text-xs font-medium transition-colors text-left ${
                         (pickupTime || "asap") === slot.value
-                          ? "bg-[#BFE96A] text-[#0f0f0f]"
+                          ? "bg-[#C4A07A] text-[#0f0f0f]"
                           : "bg-[#F5F5F5] text-[#6B6B6B] hover:bg-[#EEEEEE]"
                       }`}
                     >
@@ -269,7 +269,7 @@ export default function MenuPage() {
                 value={note} onChange={(e) => setNote(e.target.value)}
                 placeholder="メモ（アレルギー・要望など）"
                 rows={2}
-                className="w-full bg-white border border-[#E8E8E8] text-[#1C1C1E] text-sm rounded-xl px-4 py-3 placeholder-[#ABABAB] focus:outline-none focus:border-[#BFE96A]/50 resize-none"
+                className="w-full bg-white border border-[#E8E8E8] text-[#1C1C1E] text-sm rounded-xl px-4 py-3 placeholder-[#ABABAB] focus:outline-none focus:border-[#C4A07A]/50 resize-none"
               />
             </div>
 
@@ -279,7 +279,7 @@ export default function MenuPage() {
             </div>
 
             <button onClick={checkout} disabled={ordering}
-              className="w-full bg-[#BFE96A] text-[#0f0f0f] font-bold py-4 rounded-2xl hover:bg-[#d4f086] transition-colors disabled:opacity-50">
+              className="w-full bg-[#C4A07A] text-[#0f0f0f] font-bold py-4 rounded-2xl hover:bg-[#D4B08A] transition-colors disabled:opacity-50">
               {ordering ? "処理中..." : "カードで支払う →"}
             </button>
           </div>

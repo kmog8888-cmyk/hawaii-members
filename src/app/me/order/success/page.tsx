@@ -26,18 +26,18 @@ function SuccessContent() {
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center px-6 text-center">
       <div className="mb-6">
-        <CheckCircle size={64} className="text-[#BFE96A] mx-auto" strokeWidth={1.5} />
+        <CheckCircle size={64} className="text-[#C4A07A] mx-auto" strokeWidth={1.5} />
       </div>
-      <p className="text-[10px] tracking-[0.3em] text-[#BFE96A] uppercase mb-2">Order Confirmed</p>
+      <p className="text-[10px] tracking-[0.3em] text-[#C4A07A] uppercase mb-2">Order Confirmed</p>
       <h1 className="text-3xl font-light text-[#1C1C1E] mb-2">ご注文ありがとうございます</h1>
       {orderNumber && (
         <div className="bg-[#F5F5F5] border border-[#E8E8E8] rounded-2xl px-6 py-4 mt-4 mb-6">
           <p className="text-[#ABABAB] text-xs mb-1">注文番号</p>
-          <p className="text-[#BFE96A] text-4xl font-bold">#{String(orderNumber).padStart(3, "0")}</p>
+          <p className="text-[#C4A07A] text-4xl font-bold">#{String(orderNumber).padStart(3, "0")}</p>
         </div>
       )}
       <p className="text-[#ABABAB] text-sm mb-8">準備ができましたらお呼びします</p>
-      <Link href="/me" className="bg-[#BFE96A] text-[#0f0f0f] font-semibold px-8 py-3.5 rounded-2xl hover:bg-[#d4f086] transition-colors">
+      <Link href="/me" className="bg-[#C4A07A] text-[#0f0f0f] font-semibold px-8 py-3.5 rounded-2xl hover:bg-[#D4B08A] transition-colors">
         マイページへ戻る
       </Link>
     </div>
@@ -46,7 +46,7 @@ function SuccessContent() {
 
 export default function OrderSuccessPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-white flex items-center justify-center"><div className="w-8 h-8 border-2 border-[#BFE96A] border-t-transparent rounded-full animate-spin" /></div>}>
+    <Suspense fallback={<div className="min-h-screen bg-white flex items-center justify-center"><div className="w-8 h-8 border-2 border-[#C4A07A] border-t-transparent rounded-full animate-spin" /></div>}>
       <SuccessContent />
     </Suspense>
   );

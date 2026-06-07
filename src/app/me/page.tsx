@@ -17,7 +17,7 @@ type Me = {
 const tierConfig = {
   bronze: { label: "Bronze", color: "text-amber-700",   bg: "bg-amber-50",    border: "border-amber-200" },
   silver: { label: "Silver", color: "text-slate-500",   bg: "bg-slate-100",   border: "border-slate-200" },
-  gold:   { label: "Gold",   color: "text-[#1C1C1E]",   bg: "bg-[#BFE96A]",   border: "border-[#BFE96A]" },
+  gold:   { label: "Gold",   color: "text-[#1C1C1E]",   bg: "bg-[#C4A07A]",   border: "border-[#C4A07A]" },
 };
 
 const nextTier = {
@@ -39,7 +39,7 @@ export default function MePage() {
 
   if (loading) return (
     <div className="min-h-screen bg-white flex items-center justify-center">
-      <div className="w-7 h-7 border-2 border-[#BFE96A] border-t-[#1C1C1E] rounded-full animate-spin" />
+      <div className="w-7 h-7 border-2 border-[#C4A07A] border-t-[#1C1C1E] rounded-full animate-spin" />
     </div>
   );
   if (!me) return null;
@@ -59,7 +59,7 @@ export default function MePage() {
       <div className="bg-white px-5 pt-14 pb-6 border-b border-[#E8E8E8]">
         <div className="flex items-center justify-between mb-5">
           <div>
-            <p className="text-[10px] tracking-[0.3em] text-[#BFE96A] uppercase font-bold">Alohabake &amp; cafe</p>
+            <p className="text-[10px] tracking-[0.3em] text-[#C4A07A] uppercase font-bold">Alohabake &amp; cafe</p>
             <p className="text-[10px] tracking-[0.15em] text-[#ABABAB] uppercase">Kaka'ako</p>
           </div>
           <button onClick={() => signOut({ callbackUrl: "/" })} className="text-[#ABABAB] hover:text-[#6B6B6B] transition-colors">
@@ -70,7 +70,7 @@ export default function MePage() {
         <div className="flex items-center gap-3">
           {me.user.image
             ? <img src={me.user.image} alt="" className="w-11 h-11 rounded-full border border-[#E8E8E8]" />
-            : <div className="w-11 h-11 rounded-full bg-[#BFE96A] flex items-center justify-center text-[#1C1C1E] font-bold text-base">
+            : <div className="w-11 h-11 rounded-full bg-[#C4A07A] flex items-center justify-center text-[#1C1C1E] font-bold text-base">
                 {me.user.name?.[0] ?? "A"}
               </div>
           }
@@ -95,7 +95,7 @@ export default function MePage() {
               </p>
             </div>
             {discount > 0 && (
-              <div className="bg-[#BFE96A] text-[#1C1C1E] text-xs font-bold px-2.5 py-1 rounded-full">
+              <div className="bg-[#C4A07A] text-[#1C1C1E] text-xs font-bold px-2.5 py-1 rounded-full">
                 {discount}% OFF
               </div>
             )}
@@ -108,11 +108,11 @@ export default function MePage() {
                 <span>{next.name.toUpperCase()} まで {ptsToNext.toLocaleString()}pt</span>
               </div>
               <div className="w-full bg-[#F0F0F0] rounded-full h-1.5">
-                <div className="h-1.5 rounded-full bg-[#BFE96A] transition-all duration-700" style={{ width: `${pct}%` }} />
+                <div className="h-1.5 rounded-full bg-[#C4A07A] transition-all duration-700" style={{ width: `${pct}%` }} />
               </div>
             </div>
           ) : (
-            <p className="text-[10px] text-[#BFE96A] font-bold tracking-widest uppercase">✦ Top Rank</p>
+            <p className="text-[10px] text-[#C4A07A] font-bold tracking-widest uppercase">✦ Top Rank</p>
           )}
         </div>
 
@@ -120,7 +120,7 @@ export default function MePage() {
         <div className="grid grid-cols-4 gap-2">
           {[
             { href: "/me/checkin", icon: QrCode,          label: "Check in", style: "bg-white border border-[#E8E8E8] text-[#1C1C1E]" },
-            { href: "/me/menu",    icon: UtensilsCrossed, label: "Menu",     style: "bg-[#BFE96A] text-[#1C1C1E]" },
+            { href: "/me/menu",    icon: UtensilsCrossed, label: "Menu",     style: "bg-[#C4A07A] text-[#1C1C1E]" },
             { href: "/me/game",    icon: Gamepad2,        label: "Game",     style: "bg-white border border-[#E8E8E8] text-[#1C1C1E]" },
             { href: "/subscribe",  icon: CreditCard,      label: isActive ? "Plan" : "Join", style: "bg-white border border-[#E8E8E8] text-[#1C1C1E]" },
           ].map(({ href, icon: Icon, label, style }) => (
@@ -135,11 +135,11 @@ export default function MePage() {
         {discount > 0 && (
           <div className="bg-[#1C1C1E] rounded-2xl p-4 flex items-center justify-between">
             <div>
-              <p className="text-[10px] text-[#BFE96A] tracking-widest uppercase mb-0.5">Your Benefit</p>
+              <p className="text-[10px] text-[#C4A07A] tracking-widest uppercase mb-0.5">Your Benefit</p>
               <p className="text-white font-medium text-sm">全メニュー {discount}% OFF</p>
               {isActive && <p className="text-xs text-white/40 mt-0.5">毎月 {SUBSCRIPTION_PLANS[me.subscriptionPlan as "silver" | "gold"]?.points}pt プレゼント</p>}
             </div>
-            <span className="text-[#BFE96A] text-2xl">✦</span>
+            <span className="text-[#C4A07A] text-2xl">✦</span>
           </div>
         )}
 

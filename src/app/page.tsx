@@ -27,7 +27,7 @@ export default function LoginPage() {
       <div className="w-full max-w-sm">
         {/* ブランド */}
         <div className="text-center mb-10">
-          <div className="inline-block bg-[#BFE96A] text-[#1C1C1E] text-[10px] font-bold tracking-[0.3em] uppercase px-3 py-1 rounded-full mb-5">
+          <div className="inline-block bg-[#C4A07A] text-[#1C1C1E] text-[10px] font-bold tracking-[0.3em] uppercase px-3 py-1 rounded-full mb-5">
             Members
           </div>
           <h1 className="text-3xl font-light text-[#1C1C1E] tracking-tight">
@@ -41,12 +41,12 @@ export default function LoginPage() {
           <input
             type="email" required value={form.email} onChange={(e) => set("email", e.target.value)}
             placeholder="メールアドレス"
-            className="w-full bg-[#F5F5F5] border border-transparent text-[#1C1C1E] rounded-xl px-4 py-3.5 text-sm placeholder-[#ABABAB] focus:outline-none focus:border-[#BFE96A] focus:bg-white transition-colors"
+            className="w-full bg-[#F5F5F5] border border-transparent text-[#1C1C1E] rounded-xl px-4 py-3.5 text-sm placeholder-[#ABABAB] focus:outline-none focus:border-[#C4A07A] focus:bg-white transition-colors"
           />
           <input
             type="password" required value={form.password} onChange={(e) => set("password", e.target.value)}
             placeholder="パスワード"
-            className="w-full bg-[#F5F5F5] border border-transparent text-[#1C1C1E] rounded-xl px-4 py-3.5 text-sm placeholder-[#ABABAB] focus:outline-none focus:border-[#BFE96A] focus:bg-white transition-colors"
+            className="w-full bg-[#F5F5F5] border border-transparent text-[#1C1C1E] rounded-xl px-4 py-3.5 text-sm placeholder-[#ABABAB] focus:outline-none focus:border-[#C4A07A] focus:bg-white transition-colors"
           />
           <button
             type="submit" disabled={loading}

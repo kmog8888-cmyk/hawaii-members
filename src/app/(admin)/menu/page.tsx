@@ -41,7 +41,7 @@ export default function MenuAdminPage() {
     <div>
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-2xl font-bold text-white">Menu</h2>
-        <Link href="/menu/new" className="flex items-center gap-2 bg-[#BFE96A] text-[#0f0f0f] px-4 py-2 rounded-xl text-sm font-semibold hover:bg-[#d4f086] transition-colors">
+        <Link href="/menu/new" className="flex items-center gap-2 bg-[#C4A07A] text-[#0f0f0f] px-4 py-2 rounded-xl text-sm font-semibold hover:bg-[#D4B08A] transition-colors">
           <Plus size={16} /> アイテム追加
         </Link>
       </div>
@@ -50,7 +50,7 @@ export default function MenuAdminPage() {
       <div className="flex gap-2 mb-6 flex-wrap">
         {[["all", "すべて"], ...Object.entries(CATEGORIES)].map(([key, label]) => (
           <button key={key} onClick={() => setFilter(key)}
-            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${filter === key ? "bg-[#BFE96A] text-[#0f0f0f]" : "bg-white/5 text-white/40 hover:bg-white/10"}`}>
+            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${filter === key ? "bg-[#C4A07A] text-[#0f0f0f]" : "bg-white/5 text-white/40 hover:bg-white/10"}`}>
             {label}
           </button>
         ))}
@@ -61,7 +61,7 @@ export default function MenuAdminPage() {
           <div className="col-span-2 text-center py-16 text-white/20">
             <p className="text-4xl mb-3">🍽</p>
             <p>メニューがありません</p>
-            <Link href="/menu/new" className="text-[#BFE96A] text-sm mt-2 inline-block hover:underline">追加する</Link>
+            <Link href="/menu/new" className="text-[#C4A07A] text-sm mt-2 inline-block hover:underline">追加する</Link>
           </div>
         )}
         {filtered.map((item) => (
@@ -77,7 +77,7 @@ export default function MenuAdminPage() {
                   <p className="font-medium text-white text-sm">{item.name}</p>
                   {item.nameEn && <p className="text-xs text-white/30">{item.nameEn}</p>}
                 </div>
-                <p className="text-[#BFE96A] font-semibold text-sm whitespace-nowrap">${item.price.toFixed(2)}</p>
+                <p className="text-[#C4A07A] font-semibold text-sm whitespace-nowrap">${item.price.toFixed(2)}</p>
               </div>
               <p className="text-[10px] text-white/30 mb-3">{CATEGORIES[item.category] ?? item.category}</p>
               <div className="flex gap-2">

@@ -17,7 +17,7 @@ export default function Sidebar() {
   return (
     <aside className="w-56 min-h-screen bg-[#0f0f0f] text-white flex flex-col border-r border-white/5">
       <div className="px-6 py-6 border-b border-white/5">
-        <p className="text-[10px] tracking-[0.3em] text-[#BFE96A] uppercase font-medium">Alohabake &amp; cafe</p>
+        <p className="text-[10px] tracking-[0.3em] text-[#C4A07A] uppercase font-medium">Alohabake &amp; cafe</p>
         <p className="text-[10px] tracking-[0.15em] text-white/20 uppercase mt-0.5">Kaka'ako</p>
         <span className="inline-block mt-2 text-[10px] bg-white/10 text-white/40 px-2 py-0.5 rounded-full tracking-wide">Admin</span>
       </div>
@@ -30,7 +30,7 @@ export default function Sidebar() {
               href={href}
               className={`flex items-center gap-3 px-6 py-3 text-sm transition-colors ${
                 active
-                  ? "text-[#BFE96A] bg-[#BFE96A]/5 border-r-2 border-[#BFE96A]"
+                  ? "text-[#C4A07A] bg-[#C4A07A]/5 border-r-2 border-[#C4A07A]"
                   : "text-white/30 hover:text-white/70 hover:bg-white/5"
               }`}
             >

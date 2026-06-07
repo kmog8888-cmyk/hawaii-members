@@ -48,22 +48,22 @@ export default function NewMenuItemPage() {
           <div className="col-span-2">
             <label className="block text-xs text-white/40 mb-1.5 tracking-wide uppercase">商品名 *</label>
             <input type="text" required value={form.name} onChange={(e) => set("name", e.target.value)}
-              placeholder="アサイーボウル" className="w-full bg-[#0f0f0f] border border-white/10 text-white rounded-xl px-4 py-3 text-sm placeholder-white/20 focus:outline-none focus:border-[#BFE96A]/50" />
+              placeholder="アサイーボウル" className="w-full bg-[#0f0f0f] border border-white/10 text-white rounded-xl px-4 py-3 text-sm placeholder-white/20 focus:outline-none focus:border-[#C4A07A]/50" />
           </div>
           <div className="col-span-2">
             <label className="block text-xs text-white/40 mb-1.5 tracking-wide uppercase">英語名</label>
             <input type="text" value={form.nameEn} onChange={(e) => set("nameEn", e.target.value)}
-              placeholder="Acai Bowl" className="w-full bg-[#0f0f0f] border border-white/10 text-white rounded-xl px-4 py-3 text-sm placeholder-white/20 focus:outline-none focus:border-[#BFE96A]/50" />
+              placeholder="Acai Bowl" className="w-full bg-[#0f0f0f] border border-white/10 text-white rounded-xl px-4 py-3 text-sm placeholder-white/20 focus:outline-none focus:border-[#C4A07A]/50" />
           </div>
           <div>
             <label className="block text-xs text-white/40 mb-1.5 tracking-wide uppercase">価格 ($) *</label>
             <input type="number" required step="0.01" min="0" value={form.price} onChange={(e) => set("price", e.target.value)}
-              placeholder="12.00" className="w-full bg-[#0f0f0f] border border-white/10 text-white rounded-xl px-4 py-3 text-sm placeholder-white/20 focus:outline-none focus:border-[#BFE96A]/50" />
+              placeholder="12.00" className="w-full bg-[#0f0f0f] border border-white/10 text-white rounded-xl px-4 py-3 text-sm placeholder-white/20 focus:outline-none focus:border-[#C4A07A]/50" />
           </div>
           <div>
             <label className="block text-xs text-white/40 mb-1.5 tracking-wide uppercase">カテゴリ</label>
             <select value={form.category} onChange={(e) => set("category", e.target.value)}
-              className="w-full bg-[#0f0f0f] border border-white/10 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#BFE96A]/50">
+              className="w-full bg-[#0f0f0f] border border-white/10 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#C4A07A]/50">
               {CATEGORIES.map((c) => <option key={c.value} value={c.value}>{c.label}</option>)}
             </select>
           </div>
@@ -72,13 +72,13 @@ export default function NewMenuItemPage() {
         <div>
           <label className="block text-xs text-white/40 mb-1.5 tracking-wide uppercase">説明</label>
           <textarea rows={3} value={form.description} onChange={(e) => set("description", e.target.value)}
-            placeholder="新鮮なフルーツと..." className="w-full bg-[#0f0f0f] border border-white/10 text-white rounded-xl px-4 py-3 text-sm placeholder-white/20 focus:outline-none focus:border-[#BFE96A]/50 resize-none" />
+            placeholder="新鮮なフルーツと..." className="w-full bg-[#0f0f0f] border border-white/10 text-white rounded-xl px-4 py-3 text-sm placeholder-white/20 focus:outline-none focus:border-[#C4A07A]/50 resize-none" />
         </div>
 
         <div>
           <label className="block text-xs text-white/40 mb-1.5 tracking-wide uppercase">写真URL</label>
           <input type="url" value={form.imageUrl} onChange={(e) => set("imageUrl", e.target.value)}
-            placeholder="https://..." className="w-full bg-[#0f0f0f] border border-white/10 text-white rounded-xl px-4 py-3 text-sm placeholder-white/20 focus:outline-none focus:border-[#BFE96A]/50" />
+            placeholder="https://..." className="w-full bg-[#0f0f0f] border border-white/10 text-white rounded-xl px-4 py-3 text-sm placeholder-white/20 focus:outline-none focus:border-[#C4A07A]/50" />
           {form.imageUrl && (
             <div className="mt-2 rounded-xl overflow-hidden aspect-video">
               <img src={form.imageUrl} alt="preview" className="w-full h-full object-cover" onError={(e) => (e.currentTarget.style.display = "none")} />
@@ -87,7 +87,7 @@ export default function NewMenuItemPage() {
         </div>
 
         <button type="submit" disabled={loading}
-          className="w-full bg-[#BFE96A] text-[#0f0f0f] font-semibold py-3 rounded-xl text-sm hover:bg-[#d4f086] transition-colors disabled:opacity-40">
+          className="w-full bg-[#C4A07A] text-[#0f0f0f] font-semibold py-3 rounded-xl text-sm hover:bg-[#D4B08A] transition-colors disabled:opacity-40">
           {loading ? "追加中..." : "追加する"}
         </button>
       </form>

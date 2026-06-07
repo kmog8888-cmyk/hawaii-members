@@ -107,6 +107,7 @@ model Order {
   total           Float
   stripeSessionId String?     @unique
   note            String?
+  pickupTime      String?
   orderNumber     Int?
   createdAt       DateTime    @default(now())
   updatedAt       DateTime    @updatedAt

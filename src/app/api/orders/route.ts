@@ -15,7 +15,7 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
-  const { items, note, customerId, customerName, customerEmail } = await req.json();
+  const { items, note, pickupTime, customerId, customerName, customerEmail } = await req.json();
   if (!items?.length) return Response.json({ error: "カートが空です" }, { status: 400 });
 
   const count = await prisma.order.count();
@@ -27,6 +27,7 @@ export async function POST(req: NextRequest) {
       status: "pending",
       total: items.reduce((s: number, i: { price: number; quantity: number }) => s + i.price * i.quantity, 0),
       note: note || null,
+      pickupTime: pickupTime || null,
       orderNumber: count + 1,
       items: {
         create: items.map((i: { menuItemId: string; name: string; price: number; quantity: number }) => ({

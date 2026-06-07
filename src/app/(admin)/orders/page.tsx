@@ -6,7 +6,7 @@ import { RefreshCw } from "lucide-react";
 type OrderItem = { id: string; name: string; quantity: number; price: number };
 type Order = {
   id: string; orderNumber: number | null; status: string; total: number;
-  customerName: string | null; note: string | null; createdAt: string;
+  customerName: string | null; note: string | null; pickupTime: string | null; createdAt: string;
   items: OrderItem[];
   customer: { user: { name: string | null } } | null;
 };
@@ -87,8 +87,13 @@ export default function OrdersPage() {
                     <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${st.color}`}>{st.label}</span>
                   </div>
                   <p className="text-white/30 text-xs mt-0.5">
-                    {order.customerName ?? "ゲスト"} · {new Date(order.createdAt).toLocaleTimeString("ja-JP", { hour: "2-digit", minute: "2-digit" })}
+                    {order.customerName ?? "ゲスト"} · 注文 {new Date(order.createdAt).toLocaleTimeString("ja-JP", { hour: "2-digit", minute: "2-digit" })}
                   </p>
+                  {order.pickupTime && (
+                    <p className={`text-xs font-semibold mt-1 ${order.pickupTime === "asap" ? "text-orange-400" : "text-[#BFE96A]"}`}>
+                      🕐 受け取り: {order.pickupTime === "asap" ? "できるだけ早く" : order.pickupTime}
+                    </p>
+                  )}
                 </div>
                 <p className="text-[#BFE96A] font-bold">${order.total.toFixed(2)}</p>
               </div>

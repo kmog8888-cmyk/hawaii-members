@@ -26,7 +26,24 @@ export default function MenuPage() {
   const [loading, setLoading] = useState(true);
   const [showCart, setShowCart] = useState(false);
   const [note, setNote] = useState("");
+  const [pickupTime, setPickupTime] = useState("");
   const [ordering, setOrdering] = useState(false);
+
+  // 15分刻みの受け取り時間スロット生成（今から15分後〜90分後）
+  const timeSlots = (() => {
+    const slots: { value: string; label: string }[] = [{ value: "asap", label: "できるだけ早く" }];
+    const now = new Date();
+    now.setMinutes(Math.ceil(now.getMinutes() / 15) * 15 + 15, 0, 0);
+    for (let i = 0; i < 6; i++) {
+      const t = new Date(now.getTime() + i * 15 * 60000);
+      const h = t.getHours();
+      const m = String(t.getMinutes()).padStart(2, "0");
+      const ampm = h >= 12 ? "PM" : "AM";
+      const h12 = h % 12 || 12;
+      slots.push({ value: `${h}:${m}`, label: `${h12}:${m} ${ampm}` });
+    }
+    return slots;
+  })();
 
   useEffect(() => {
     fetch("/api/menu").then((r) => r.json()).then((d) => {
@@ -67,6 +84,7 @@ export default function MenuPage() {
       body: JSON.stringify({
         items: cart.map((c) => ({ menuItemId: c.id, name: c.name, price: c.price, quantity: c.quantity })),
         note,
+        pickupTime: pickupTime || "asap",
         customerId: me?.id || null,
         customerName: me?.user?.name || null,
         customerEmail: me?.user?.email || null,
@@ -226,7 +244,27 @@ export default function MenuPage() {
               ))}
             </div>
 
-            <div className="border-t border-white/10 pt-4 mb-4">
+            <div className="border-t border-white/10 pt-4 mb-4 space-y-3">
+              {/* 受け取り時間 */}
+              <div>
+                <p className="text-[10px] text-white/30 tracking-widest uppercase mb-2">受け取り時間</p>
+                <div className="grid grid-cols-2 gap-2">
+                  {timeSlots.map((slot) => (
+                    <button
+                      key={slot.value}
+                      onClick={() => setPickupTime(slot.value)}
+                      className={`py-2 px-3 rounded-xl text-xs font-medium transition-colors text-left ${
+                        (pickupTime || "asap") === slot.value
+                          ? "bg-[#BFE96A] text-[#0f0f0f]"
+                          : "bg-white/5 text-white/50 hover:bg-white/10"
+                      }`}
+                    >
+                      {slot.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              {/* メモ */}
               <textarea
                 value={note} onChange={(e) => setNote(e.target.value)}
                 placeholder="メモ（アレルギー・要望など）"

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
-import { QrCode, CreditCard, Gamepad2, LogOut } from "lucide-react";
+import { QrCode, CreditCard, Gamepad2, LogOut, UtensilsCrossed } from "lucide-react";
 import Link from "next/link";
 import { TIER_DISCOUNT, SUBSCRIPTION_PLANS } from "@/lib/tier";
 
@@ -111,18 +111,22 @@ export default function MePage() {
         </div>
 
         {/* アクションボタン */}
-        <div className="grid grid-cols-3 gap-3">
-          <Link href="/me/checkin" className="bg-[#1a1a1a] border border-white/5 rounded-2xl p-4 flex flex-col items-center gap-2.5 hover:border-[#BFE96A]/40 transition-colors">
+        <div className="grid grid-cols-4 gap-2">
+          <Link href="/me/checkin" className="bg-[#1a1a1a] border border-white/5 rounded-2xl p-3 flex flex-col items-center gap-2 hover:border-[#BFE96A]/40 transition-colors">
             <QrCode size={20} className="text-white/70" />
-            <span className="text-[10px] text-white/40 tracking-wide uppercase">Check in</span>
+            <span className="text-[9px] text-white/40 tracking-wide uppercase">Check in</span>
           </Link>
-          <Link href="/me/game" className="bg-[#BFE96A] rounded-2xl p-4 flex flex-col items-center gap-2.5 hover:bg-[#d4f086] transition-colors">
-            <Gamepad2 size={20} className="text-[#0f0f0f]" />
-            <span className="text-[10px] text-[#0f0f0f] font-bold tracking-wide uppercase">Game</span>
+          <Link href="/me/menu" className="bg-[#BFE96A] rounded-2xl p-3 flex flex-col items-center gap-2 hover:bg-[#d4f086] transition-colors">
+            <UtensilsCrossed size={20} className="text-[#0f0f0f]" />
+            <span className="text-[9px] text-[#0f0f0f] font-bold tracking-wide uppercase">Menu</span>
           </Link>
-          <Link href="/subscribe" className="bg-[#1a1a1a] border border-white/5 rounded-2xl p-4 flex flex-col items-center gap-2.5 hover:border-[#BFE96A]/40 transition-colors">
+          <Link href="/me/game" className="bg-[#1a1a1a] border border-white/5 rounded-2xl p-3 flex flex-col items-center gap-2 hover:border-[#BFE96A]/40 transition-colors">
+            <Gamepad2 size={20} className="text-white/70" />
+            <span className="text-[9px] text-white/40 tracking-wide uppercase">Game</span>
+          </Link>
+          <Link href="/subscribe" className="bg-[#1a1a1a] border border-white/5 rounded-2xl p-3 flex flex-col items-center gap-2 hover:border-[#BFE96A]/40 transition-colors">
             <CreditCard size={20} className="text-white/70" />
-            <span className="text-[10px] text-white/40 tracking-wide uppercase">{isActive ? "Plan" : "Join"}</span>
+            <span className="text-[9px] text-white/40 tracking-wide uppercase">{isActive ? "Plan" : "Join"}</span>
           </Link>
         </div>
 
